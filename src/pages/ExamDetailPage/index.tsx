@@ -25,6 +25,8 @@ const ExamDetailPage = () => {
     const { assignment, examCodes, questions } = state.exam || {};
     const exam = examCodes?.[0];
 
+    console.log(state.exam);
+
     const [answers, setAnswers] = useState<Record<string, string>>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -86,9 +88,8 @@ const ExamDetailPage = () => {
             });
 
             if (response.ok) {
-                alert('Nộp bài thành công!');
                 const result = await response.json();
-                navigate('/exam/result', { state: { result } });
+                navigate('/exam/result', { state: { result, questions, submissionContent: submissionContent } });
             } else {
                 const err = await response.text();
                 alert('Lỗi: ' + err);

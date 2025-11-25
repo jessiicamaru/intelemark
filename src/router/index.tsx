@@ -6,6 +6,7 @@ import ProtectedRoute from './ProtectedRoute';
 import ExamDetailPage from '@/pages/ExamDetailPage';
 import ProtectedResultRoute from './ProtectedResultRoute';
 import ExamResultPage from '@/pages/ExamResultPage';
+import TeacherDashboard from '@/pages/TeacherDashboard';
 
 const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
     {
         path: '/register',
         element: <RegisterPage />,
+    },
+    {
+        path: '/teacher-dashboard',
+        element: <TeacherDashboard />,
     },
     {
         path: '/exam/:id',
