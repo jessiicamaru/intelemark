@@ -221,7 +221,7 @@ export default function TeacherDashboard() {
 
     const bestScore = studentAttempts.length > 0 ? Math.max(...studentAttempts.map((a) => a.score)) : 0;
 
-    const avgScore = studentAttempts.length > 0 ? (studentAttempts.reduce((sum, a) => sum + a.score, 0) / studentAttempts.length).toFixed(1) : '0';
+    const avgScore = studentAttempts.length > 0 ? (studentAttempts.reduce((sum, a) => sum + a.score, 0) / studentAttempts.length).toFixed(2) : '0';
 
     const handleLogout = () => {
         localStorage.clear();
@@ -350,7 +350,7 @@ export default function TeacherDashboard() {
                                             <div className="text-sm text-gray-600">{s!.student_id}</div>
                                             <div className="flex justify-between items-center mt-2">
                                                 <span className="text-xs bg-gray-200 px-2 py-1 rounded">{attempts.length} lần nộp</span>
-                                                {latest && <span className="text-xl font-bold text-indigo-600">{latest.score.toFixed(1)}</span>}
+                                                {latest && <span className="text-xl font-bold text-indigo-600">{latest.score.toFixed(2)}</span>}
                                             </div>
                                         </div>
                                     );
@@ -371,7 +371,7 @@ export default function TeacherDashboard() {
                                         <div className="flex gap-6 text-lg">
                                             <div className="flex items-center gap-2">
                                                 <TrendingUp className="h-5 w-5 text-green-600" />
-                                                Điểm cao nhất: <strong className="text-green-600">{bestScore.toFixed(1)}</strong>
+                                                Điểm cao nhất: <strong className="text-green-600">{bestScore.toFixed(2)}</strong>
                                             </div>
                                             <div>
                                                 Trung bình: <strong>{avgScore}/10</strong>
@@ -395,7 +395,7 @@ export default function TeacherDashboard() {
                                                     <XAxis dataKey="attempt" />
                                                     <YAxis domain={[0, 10]} ticks={[0, 2, 4, 6, 8, 10]} />
                                                     <Tooltip
-                                                        formatter={(v: number) => `${v.toFixed(1)} điểm`}
+                                                        formatter={(v: number) => `${v.toFixed(2)} điểm`}
                                                         labelFormatter={(label) => `${label} • ${chartData.find((d) => d.attempt === label)?.date}`}
                                                     />
                                                     <Line

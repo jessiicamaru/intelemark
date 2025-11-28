@@ -99,7 +99,7 @@ export default function ExamResultPage() {
                             )}
                         </div>
                         <CardTitle className="text-6xl font-extrabold">
-                            {totalGot.toFixed(1)}
+                            {totalGot.toFixed(2)}
                             <span className="text-3xl text-gray-500 ml-3">/ {totalMax}</span>
                         </CardTitle>
                         <p className="text-4xl text-muted-foreground mt-2">{percentage}%</p>
@@ -128,7 +128,6 @@ export default function ExamResultPage() {
                     </CardHeader>
                     <CardContent className="space-y-6">
                         <Alert className="bg-yellow-50 border-yellow-300">
-                            <AlertTitle className="text-xl">{scoringResult.feedback.progress}</AlertTitle>
                             <AlertDescription className="text-base mt-2">{scoringResult.feedback.summary}</AlertDescription>
                         </Alert>
 
@@ -171,7 +170,7 @@ export default function ExamResultPage() {
                                                     {typeLabel}
                                                 </Badge>
                                                 <span className="text-lg font-medium text-gray-600">
-                                                    ({detail.point.toFixed(1)} / {detail.max_point} điểm)
+                                                    ({detail.point.toFixed(2)} / {detail.max_point} điểm)
                                                 </span>
                                             </div>
                                             <p className="mt-3 text-lg font-medium text-gray-800 leading-relaxed">{q.question_content}</p>
@@ -253,7 +252,7 @@ export default function ExamResultPage() {
                                                             <p className="text-gray-700 mt-1.5">{item.comment}</p>
                                                         </div>
                                                         <Badge variant="secondary" className="text-lg px-4 py-2">
-                                                            {item.point.toFixed(1)} điểm
+                                                            {item.point.toFixed(2)} điểm
                                                         </Badge>
                                                     </div>
                                                 </div>
